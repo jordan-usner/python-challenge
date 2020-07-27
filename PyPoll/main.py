@@ -2,14 +2,18 @@ import os
 import csv
 csvpath = os.path.join("PyPoll", "Resources", "03-Python_Homework_PyPoll_Resources_election_data.csv")
 Total_Votes = 0
+Candidates = []
 
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
    
     csv_header = next(csvreader)
 
-    for row in csvreader: 
+    for row in csvreader:
         Total_Votes += 1
+        candidate = row[2]
+        Candidates.append(candidate)
+        print(Candidates)
 
 print("Election Results")
 print("-" *25)
